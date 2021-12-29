@@ -43,7 +43,7 @@ int main()
 	holiday_Schedule(t_holiday, transfer_c);
 	
 	int i=1;
-	while(i=0)
+	while(i!=0)
 	{
 		printf("終わりますか?Yes:0, No:1\n");
 		scanf_s("%d",&i);
