@@ -23,7 +23,7 @@ int main()
 	
 	getHoliday(holiday, month, days, youbi);
 	
-	printf("‹Î–±•\‚Ì‹x“ú‚ğ“ü—Í\n");
+	printf("å‹¤å‹™è¡¨ã®ä¼‘æ—¥ã‚’å…¥åŠ›\n");
 	
 	holiday_Input(holiday_c);
 	
@@ -31,30 +31,36 @@ int main()
 	
 	Transfer(holiday_c, holiday, t_holiday);
 	
-	printf("U‹x‚Í\n");
+	printf("æŒ¯ä¼‘ã¯\n");
 	holiday_Output(t_holiday);
 	
 	Transfer(holiday, holiday_c, transfer_c);
 	
-	printf("Uo‚Í\n");
+	printf("æŒ¯å‡ºã¯\n");
 	holiday_Output(transfer_c);
 	
-	printf("U‹x“ú@Uo“ú\n");
+	printf("æŒ¯ä¼‘æ—¥ã€€æŒ¯å‡ºæ—¥\n");
 	holiday_Schedule(t_holiday, transfer_c);
-
+	
+	int i=1;
+	while(i=0)
+	{
+		printf("çµ‚ã‚ã‚Šã¾ã™ã‹?Yes:0, No:1\n");
+		scanf_s("%d",&i);
+	}
 	return 0;
 }
 
 void getYearMonth(int* py, int* pm)
 {
-	printf("ƒJƒŒƒ“ƒ_[‚ğ•\¦\n");
-	printf("¼—ï‚ÆŒ‚ğ“ü—Í(—á:2003 5)\n");
+	printf("ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼ã‚’è¡¨ç¤º\n");
+	printf("è¥¿æš¦ã¨æœˆã‚’å…¥åŠ›(ä¾‹:2003 5)\n");
 	while (1)
 	{
 		scanf_s("%d %d", py, pm);
 		if (*pm >= 1 && *pm <= 12)
 			break;
-		printf("“ü—Í‚µ’¼‚µ\n");
+		printf("å…¥åŠ›ã—ç›´ã—\n");
 	}
 	return;
 }
@@ -132,7 +138,7 @@ void getHoliday(int* hd, int m, int dm, int dw)
 		}
 		break;
 	case 3:
-		printf("¡”N‚Ìt•ª‚Ì“ú‚ğ“ü—Í\n");
+		printf("ä»Šå¹´ã®æ˜¥åˆ†ã®æ—¥ã‚’å…¥åŠ›\n");
 		int k;
 		scanf_s("%d", &k);
 		for (int i = 1; i <= dm; i++)
@@ -230,7 +236,7 @@ void getHoliday(int* hd, int m, int dm, int dw)
 		}
 		break;
 	case 9:
-		printf("¡”N‚ÌH•ª‚Ì“ú‚ğ“ü—Í\n");
+		printf("ä»Šå¹´ã®ç§‹åˆ†ã®æ—¥ã‚’å…¥åŠ›\n");
 		scanf_s("%d", &k);
 		for (int i = 1; i <= dm; i++)
 		{
@@ -291,7 +297,7 @@ void getHoliday(int* hd, int m, int dm, int dw)
 
 	for (int i = 0; i < j;i++)
 	{
-		printf("%d@", *(hd + i));
+		printf("%dã€€", *(hd + i));
 	}
 	
 	printf("\n");
@@ -326,11 +332,11 @@ void holiday_Input(int* hd)
 		scanf_s("%d", hd + j);
 		if (*(hd + j) < 1 || *(hd + j) > 31)
 		{
-			printf("1`31‚Å“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+			printf("1ï½31ã§å…¥åŠ›ã—ã¦ãã ã•ã„\n");
 			continue;
 		}		
 		j++;
-		printf("“ü—Í‚ğ‘±‚¯‚Ü‚·‚©HyYesc1, Noc0z\n");
+		printf("å…¥åŠ›ã‚’ç¶šã‘ã¾ã™ã‹ï¼Ÿã€Yesâ€¦1, Noâ€¦0ã€‘\n");
 		scanf_s("%d", &i);
 		if (i == 0)
 		{
@@ -338,7 +344,7 @@ void holiday_Input(int* hd)
 			break;
 		}
 		else
-			printf("“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n");
+			printf("å…¥åŠ›ã—ã¦ãã ã•ã„\n");
 		
 	}
 	sort(hd, j);
@@ -358,21 +364,21 @@ void holiday_Output(int* hd)
 	return;
 }
 
-void Transfer(int* p1, int* p2, int* p3)	/* U‹xEUo‚ğ”»•Ê */
+void Transfer(int* p1, int* p2, int* p3)	/* æŒ¯ä¼‘ãƒ»æŒ¯å‡ºã‚’åˆ¤åˆ¥ */
 {
 	int i = 0, j = 0, k = 0;
 
-	while (*(p1 + i) != '\0')	/* *p1‚Ìƒ|ƒCƒ“ƒ^ŒJ‚è•Ô‚µ */
+	while (*(p1 + i) != '\0')	/* *p1ã®ãƒã‚¤ãƒ³ã‚¿ç¹°ã‚Šè¿”ã— */
 	{
 		j = 0;
 
-		while (*(p2 + j) != '\0')	/* *p2‚ÌŒJ‚è•Ô‚µ */
+		while (*(p2 + j) != '\0')	/* *p2ã®ç¹°ã‚Šè¿”ã— */
 		{
-			if (*(p1 + i) == *(p2 + j))	/* ‹x‚İ‚ªŒö‹x‚©–@’è‹x“ú */
+			if (*(p1 + i) == *(p2 + j))	/* ä¼‘ã¿ãŒå…¬ä¼‘ã‹æ³•å®šä¼‘æ—¥ */
 				break;
 			else
 			{
-				if (*(p2 + j + 1) == '\0')	/* U‹xEUo‚ğ*p3‚É‘ã“ü */
+				if (*(p2 + j + 1) == '\0')	/* æŒ¯ä¼‘ãƒ»æŒ¯å‡ºã‚’*p3ã«ä»£å…¥ */
 				{
 					*(p3 + k) = *(p1 + i);
 					k++;
